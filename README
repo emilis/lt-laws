@@ -1,5 +1,9 @@
 Scripts for getting a list of active laws in the Republic of Lithuania.
 
+Requirements:
+
+    PHP with SimpleXML and Tidy extensions.
+
 Usage:
 
     php -f crawl.php
