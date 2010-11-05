@@ -13,6 +13,20 @@ foreach (scandir("$dir/contents") as $line) {
     }
 }
 
+$laws = array();
+foreach ($docs as $doc) {
+    if ($doc["type"] != "dėl") {
+        array_push($laws, $doc);
+    }
+}
+
+function sort_laws($a, $b) {
+    return ($a["title"] < $b["title"]) ? -1 : 1;
+}
+
+usort($laws, "sort_laws");
+file_put_contents("$dir/docs.json", json_encode($laws));
+
 $types = array();
 foreach ($docs as $doc) {
     @$types[$doc["type"]] = 1 + $types[$doc["type"]];
