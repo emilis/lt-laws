@@ -1,5 +1,9 @@
 <?php
 
+if (array_key_exists("REMOTE_ADDR", $_SERVER)) {
+    die("Web access denied. Please use command line.");
+}
+
 $dir = dirname(__FILE__);
 
 $docs = array();
