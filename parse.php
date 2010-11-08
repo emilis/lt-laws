@@ -38,6 +38,13 @@ $laws = array(
 );
 file_put_contents("$dir/laws.json", json_encode($laws));
 
+$csv = fopen("$dir/laws.csv", "w");
+fputcsv($csv, $laws["fields"]);
+foreach ($laws["data"] as $law) {
+    fputcsv($csv, $law);
+}
+fclose($csv);
+
 
 // -- get doc type stats: --
 $types = array();
