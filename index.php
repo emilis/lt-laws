@@ -22,5 +22,12 @@ foreach ($laws->data as $law) {
 
 ?>
 </ul>
+<hr>
+<p>Viso: <?php echo count($laws->data); ?></p>
+<p>Duomenys atnaujinti: <?php echo date('c', filemtime("$dir/laws.json")); ?><br>
+Duomenų failai: <a href="laws.json">JSON</a>, <a href="laws.csv">CSV</a> (tinka Exceliui)<br>
+Jokių garantijų dėl duomenų patikimumo neteikiame!</p>
+
+<p><a href="http://manovalstybe.lt/">ManoValstybė.lt</a> projektas. Programos kodas: <a href="https://github.com/emilis/lt-laws">https://github.com/emilis/lt-laws</a></p>
 </body>
 </html>
