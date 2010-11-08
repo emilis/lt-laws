@@ -13,20 +13,29 @@ foreach (scandir("$dir/contents") as $line) {
     }
 }
 
+
+// -- save laws: --
 $laws = array();
 foreach ($docs as $doc) {
     if ($doc["type"] != "dėl") {
-        array_push($laws, $doc);
+        array_push($laws, array($doc["nr"], $doc["url"], $doc["title"]));
     }
 }
 
 function sort_laws($a, $b) {
-    return ($a["title"] < $b["title"]) ? -1 : 1;
+    // compare titles:
+    return ($a[2] < $b[2]) ? -1 : 1;
 }
 
 usort($laws, "sort_laws");
-file_put_contents("$dir/docs.json", json_encode($laws));
+$laws = array(
+    "fields" => array("nr", "url", "title"),
+    "data" => $laws
+);
+file_put_contents("$dir/laws.json", json_encode($laws));
 
+
+// -- get doc type stats: --
 $types = array();
 foreach ($docs as $doc) {
     @$types[$doc["type"]] = 1 + $types[$doc["type"]];
