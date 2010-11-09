@@ -13,7 +13,7 @@ else
 <body>
 <form method="POST" action="go.php" target="doc-<?php echo $_GET["side"]; ?>">
 <input id="user-url" name="user-url" style="width: 95%" value="<?php echo  $url; ?>">
-<select name="url">
+<select id="url" name="url">
 <option value="">Pasirinkite įstatymą...</option>
 <?php
 
@@ -34,12 +34,19 @@ foreach ($laws->data as $law) {
 </form>
 
 <script type="text/javascript">
-var url = document.getElementById("user-url");
-if (!url.value) {
-    url.value = "Įveskite adresą...";
-    url.onfocus = function() {
-        url.value = "";
-        url.onfocus = undefined;
+var user_url = document.getElementById("user-url");
+if (!user_url.value) {
+    user_url.value = "Įveskite adresą...";
+    user_url.onfocus = function() {
+        user_url.value = "";
+        user_url.onfocus = undefined;
+    }
+}
+
+var url = document.getElementById("url");
+if (!url.onchange) {
+    url.onchange = function() {
+        user_url.value = "";
     }
 }
 </script>
