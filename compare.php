@@ -6,7 +6,8 @@ $right = array_key_exists("right", $_GET) ? $_GET["right"] : "";
 ?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
-    <title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Įstatymų palyginimas</title>
 </head>
 <frameset cols="50%,50%">
     <frameset rows="110,*">
