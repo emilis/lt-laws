@@ -3,7 +3,7 @@
 $left = array_key_exists("left", $_GET) ? $_GET["left"] : "";
 $right = array_key_exists("right", $_GET) ? $_GET["right"] : "";
 
-?><!DOCTYPE html>
+?><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN">
 <html>
 <head>
     <title>
